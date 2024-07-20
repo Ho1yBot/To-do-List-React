@@ -3,6 +3,11 @@
   font-family: Arial, sans-serif;
 }
 
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 * {
   font-family: "Comfortaa", cursive
 }
@@ -15,7 +20,6 @@ header {
 
 form {
   margin: 20px;
-  
 }
 
 input, textarea {
@@ -51,10 +55,11 @@ button:hover {
 
 .filter-sort {
   padding: 20px;
-  font-size: 30px;
+  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .filter, .sort {
@@ -73,4 +78,21 @@ button:hover {
 
 .input-date{
   margin: 0px auto 10px;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+  padding: 0px 20px 20px;
+}
+
+.my-name{
+  margin: 0;
+}
+
+.info a{
+  color: black;
+  text-decoration: none;
 }

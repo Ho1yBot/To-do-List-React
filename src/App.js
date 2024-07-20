@@ -18,15 +18,8 @@ const App = () => {
         setTasks([...tasks, { ...task, id: Date.now() }]);
     };
 
-    const editTask = (id) => {
-        const taskToEdit = tasks.find((task) => task.id === id);
-        const updatedTitle = prompt('Редактировать заголовок:', taskToEdit.title);
-        const updatedDescription = prompt('Редактировать описание:', taskToEdit.description);
-        const updatedDueDate = prompt('Редактировать дату завершения (дд.мм.гггг):', taskToEdit.dueDate);
-
-        if (updatedTitle && updatedDueDate) {
-            setTasks(tasks.map((task) => task.id === id ? { ...task, title: updatedTitle, description: updatedDescription, dueDate: updatedDueDate } : task));
-        }
+    const editTask = (id, title, description, dueDate, status) => {
+        setTasks(tasks.map((task) => task.id === id ? { ...task, title, description, dueDate, status } : task));
     };
 
     const deleteTask = (id) => {
@@ -55,14 +48,14 @@ const App = () => {
         <div className="App">
             <Header />
             <div className="filter-sort">
-                <label className='filter'>Фильтр: </label>
-                <select className='select-size' onChange={(e) => setFilter(e.target.value)}>
+                <label className="filter">Фильтр: </label>
+                <select className="select-size" onChange={(e) => setFilter(e.target.value)}>
                     <option value="all">Все</option>
                     <option value="completed">Выполненные</option>
                     <option value="in-progress">В работе</option>
                 </select>
-                <label className='sort'>Сортировка: </label>
-                <select className='select-size' onChange={(e) => setSortOrder(e.target.value)}>
+                <label className="sort">Сортировка: </label>
+                <select className="select-size" onChange={(e) => setSortOrder(e.target.value)}>
                     <option value="asc">По возрастанию</option>
                     <option value="desc">По убыванию</option>
                 </select>
